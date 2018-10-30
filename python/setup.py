@@ -11,7 +11,7 @@ setup(
     description='Dynamixel SDK 3. python package',
     long_description=open('README.txt').read(),
     url='https://github.com/ROBOTIS-GIT/DynamixelSDK',
-    author='Leon Jung',
+    author='Leon Jung, Jasmeet Singh',
     author_email='rwjung@robotis.com',
     install_requires=['pyserial']
 )
