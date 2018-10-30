@@ -770,7 +770,6 @@ class Protocol2PacketHandler(object):
 
         return result
 
-
     # Only for Dynamixel X Series Firmware v 42
     def writeZero(self, port, dxl_id):
         txpacket = [0] * (15)
