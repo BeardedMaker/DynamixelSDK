@@ -769,3 +769,20 @@ class Protocol2PacketHandler(object):
         _, result, _ = self.txRxPacket(port, txpacket)
 
         return result
+
+
+    #Only for Dynamixel X Series Firmware v 42
+    def writeZero(self, port, dxl_id):
+        txpacket = [0] * (15)
+        txpacket[PKT_ID] = dxl_id
+        txpacket[PKT_LENGTH_L] = 0x08
+        txpacket[PKT_LENGTH_H] = 0x00
+        txpacket[PKT_INSTRUCTION] = 0x10
+        txpacket[PKT_PARAMETER0 + 0] = 0x01
+        txpacket[PKT_PARAMETER0 + 1] = 0x44
+        txpacket[PKT_PARAMETER0 + 2] = 0x58
+        txpacket[PKT_PARAMETER0 + 3] = 0x4c
+        txpacket[PKT_PARAMETER0 + 4] = 0x22
+        result = self.txPacket(port, txpacket)
+        port.is_using = False
+        return result
